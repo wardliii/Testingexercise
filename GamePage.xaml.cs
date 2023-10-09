@@ -77,7 +77,14 @@ public partial class GamePage : ContentPage
 	 */
     private bool CheckLetterInWord(string word, char answer)
     {
-        throw new NotImplementedException();
+		if (word.Contains(answer))
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
     }
 
 
