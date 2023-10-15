@@ -70,15 +70,33 @@ public partial class GamePage : ContentPage
     }
 
     /*!
-	 * Uses the GameType to select a word from the list by its length:
-	 * Easy : length < 7
-	 * Medium : 7 <= length < 10
-	 * Hard : length >= 10
+	 check if letter is in word returns true if it is or false if not
+	 (regardless of case)
+	Takes a string and a char as input
 	 */
     private bool CheckLetterInWord(string word, char answer)
     {
-        throw new NotImplementedException();
-    }
+        if (string.IsNullOrEmpty(word) || string.IsNullOrEmpty(answer.ToString()))
+        {
+            return false;
+        }
+
+        string lowerWord = word.ToLower();
+		char lowerAnswer = Char.ToLower(answer);
+		
+		
+		
+
+		if (lowerWord.Contains(lowerAnswer))
+		{
+            return true;
+        }
+        else
+		{
+            return false;
+        }
+	}
+	
 
 
     /*!
