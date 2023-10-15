@@ -51,7 +51,7 @@ public partial class GamePage : ContentPage
     }
 
 	/* Requires testing */
-    private void OnAttemptSubmitted(object sender, EventArgs e)
+    public void OnAttemptSubmitted(object sender, EventArgs e)
 	{
         var answer = AnswerEntry.Text[0];
         var isCorrect = false;
@@ -75,9 +75,16 @@ public partial class GamePage : ContentPage
 	 * Medium : 7 <= length < 10
 	 * Hard : length >= 10
 	 */
-    private bool CheckLetterInWord(string word, char answer)
+    public bool CheckLetterInWord(string word, char answer)
     {
-        throw new NotImplementedException();
+		if (string.IsNullOrEmpty(word))
+		{
+			return false;
+		}else if (!char.IsLetter(answer))
+		{
+			return false;
+		}
+		return true;
     }
 
 
