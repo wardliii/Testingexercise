@@ -1,7 +1,3 @@
-using Hangman.Models;
-using Windows.Data.Text;
-using Windows.Media.AppBroadcasting;
-
 namespace Hangman;
 
 public partial class GamePage : ContentPage
@@ -75,9 +71,12 @@ public partial class GamePage : ContentPage
 	 * Medium : 7 <= length < 10
 	 * Hard : length >= 10
 	 */
-    private bool CheckLetterInWord(string word, char answer)
+    public bool CheckLetterInWord(string word, char answer)
     {
-        throw new NotImplementedException();
+        if (word.Contains(answer))
+            return true;
+        else
+            return false;
     }
 
 
