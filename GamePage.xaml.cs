@@ -83,18 +83,9 @@ public partial class GamePage : ContentPage
 
         string lowerWord = word.ToLower();
 		char lowerAnswer = Char.ToLower(answer);
-		
-		
-		
 
-		if (lowerWord.Contains(lowerAnswer))
-		{
-            return true;
-        }
-        else
-		{
-            return false;
-        }
+		return lowerWord.Contains(lowerAnswer);
+	
 	}
 	
 
