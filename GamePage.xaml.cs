@@ -1,6 +1,10 @@
 using Hangman.Models;
-using Windows.Data.Text;
-using Windows.Media.AppBroadcasting;
+using SQLitePCL;
+using System.Xml.Linq;
+using System.Text;
+//using Windows.Data.Text;
+//using Windows.Media.AppBroadcasting;
+//using Windows.System;
 
 namespace Hangman;
 
@@ -78,6 +82,7 @@ public partial class GamePage : ContentPage
     private bool CheckLetterInWord(string word, char answer)
     {
         throw new NotImplementedException();
+
     }
 
 
@@ -85,9 +90,39 @@ public partial class GamePage : ContentPage
 	 * Changes the image shown on the page and
 	 * Updates the visibility of the labels representing the letters in the word
 	 */
-    private void UpdateDisplay(bool isCorrect, string word, char letter, int remainingAttempts)
+    public string UpdateDisplay(bool isCorrect, string word, char letter, int remainingAttempts)
     {
-        throw new NotImplementedException();
+		StringBuilder updatedDisplay = new StringBuilder(word.Length);
+
+		if (isCorrect)
+		{
+			for (int i = 0; i < word.Length; i++)
+			{
+				if (word[i] == letter)
+				{
+					string labelName = $"Letter{i + 1}";
+					Label label = (Label)FindByName(labelName);
+					label.Text = letter.ToString();
+
+					updatedDisplay.Append(letter);
+				}
+				else
+				{
+					updatedDisplay.Append("_");
+				}
+			}
+		}
+		else
+		{
+			for (int i = 0; i < word.Length; i++)
+			{
+				updatedDisplay.Append("_");
+			}
+
+			remainingAttempts--;
+		}
+
+		return updatedDisplay.ToString();
     }
 
 
