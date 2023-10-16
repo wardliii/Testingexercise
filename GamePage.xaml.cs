@@ -1,7 +1,3 @@
-using Hangman.Models;
-using Windows.Data.Text;
-using Windows.Media.AppBroadcasting;
-
 namespace Hangman;
 
 public partial class GamePage : ContentPage
@@ -10,8 +6,10 @@ public partial class GamePage : ContentPage
 	List<char> LettersTried { get; set; }
 	char CurrentLetterGuess { get; set; }
 	public string Word {  get; set; }
+    public Label RemainingAttemptsLabel { get; set; }
+    public List<Label> WordLabels { get; set; } = new List<Label>();
 
-	int remainingAttempts = 7;
+    int remainingAttempts = 7;
 
 	public GamePage(string gameType)
 	{
@@ -28,7 +26,7 @@ public partial class GamePage : ContentPage
 	{
 		Word = SelectWord(GameType);
 		ResetDisplay(Word);
-	}
+    }
 
     /*!
 	 * Resets the display to the initial image and
@@ -85,9 +83,23 @@ public partial class GamePage : ContentPage
 	 * Changes the image shown on the page and
 	 * Updates the visibility of the labels representing the letters in the word
 	 */
-    private void UpdateDisplay(bool isCorrect, string word, char letter, int remainingAttempts)
+    public void UpdateDisplay(bool isCorrect, string word, char letter, int remainingAttempts)
     {
-        throw new NotImplementedException();
+        // Update RemainingAttemptsLabel
+        RemainingAttemptsLabel.Text = $"Remaining Attempts: {remainingAttempts}";
+
+        // Update word labels
+        if (isCorrect)
+        {
+            for (int i = 0; i < word.Length; i++)
+            {
+                if (word[i] == letter)
+                {
+                    WordLabels[i].Text = letter.ToString();
+                    WordLabels[i].IsVisible = true;
+                }
+            }
+        }
     }
 
 
