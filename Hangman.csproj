@@ -43,14 +43,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Remove="HangmanTesting\**" />
-	  <EmbeddedResource Remove="HangmanTesting\**" />
-	  <MauiCss Remove="HangmanTesting\**" />
-	  <MauiXaml Remove="HangmanTesting\**" />
-	  <None Remove="HangmanTesting\**" />
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Compile Remove="UnitTest.cs" />
 	  <Compile Remove="UnitTest1.cs" />
 	</ItemGroup>
