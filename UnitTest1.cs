@@ -1,4 +1,6 @@
 using System.Reflection;
+using Hangman;
+using Xunit;
 
 namespace newchellangemarek
 {

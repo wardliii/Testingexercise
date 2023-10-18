@@ -43,10 +43,61 @@ public partial class GamePage : ContentPage
 	 */
     private string SelectWord(string gameType)
     {
-		return "placeholder";
+        string[] words;
+        string filePath = "C:\\Users\\alexa\\source\\repos\\wardliii\\Testingexercise\\Resources\\Raw\\wordList.txt";
+
+
+        try
+        {
+            words = File.ReadAllLines(filePath);
+        }
+        catch (FileNotFoundException)
+        {
+            throw new FileNotFoundException("Word list file not found at: " + filePath);
+        }
+
+        List<string> filteredWords = new List<string>();
+
+
+        foreach (string word in words)
+        {
+            if (gameType.Equals("Easy"))
+            {
+                if (word.Length < 7)
+                {
+                    filteredWords.Add(word);
+                }
+            }
+            else if (gameType.Equals("Medium"))
+            {
+                if (word.Length >= 7 && word.Length < 10)
+                {
+                    filteredWords.Add(word);
+                }
+            }
+            else if (gameType.Equals("Hard"))
+            {
+                if (word.Length >= 10)
+                {
+                    filteredWords.Add(word);
+                }
+            }
+
+        }
+
+        // Check if there are words in the filtered list
+        if (filteredWords.Count == 0)
+        {
+            throw new InvalidOperationException("No words available for the specified game type: " + gameType);
+        }
+
+        // Select a random word from the filtered list
+        Random random = new Random();
+        int randomIndex = random.Next(0, filteredWords.Count);
+        return filteredWords[randomIndex];
     }
 
-	/* Requires testing */
+    /* Requires testing */
     private void OnAttemptSubmitted(object sender, EventArgs e)
 	{
         var answer = AnswerEntry.Text[0];
