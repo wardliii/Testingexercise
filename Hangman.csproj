@@ -43,12 +43,16 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Compile Remove="UnitTest.cs" />
-	  <Compile Remove="UnitTest1.cs" />
+	  <Compile Remove="HangmanTesting\**" />
+	  <EmbeddedResource Remove="HangmanTesting\**" />
+	  <MauiCss Remove="HangmanTesting\**" />
+	  <MauiXaml Remove="HangmanTesting\**" />
+	  <None Remove="HangmanTesting\**" />
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Include="HangmanTesting\HangmanTesting.csproj" />
+	  <Compile Remove="UnitTest.cs" />
+	  <Compile Remove="UnitTest1.cs" />
 	</ItemGroup>
 
 
@@ -71,11 +75,6 @@
 	  <MauiXaml Update="PreviousGames.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="HangmanTesting\obj\Release\net7.0\refint\" />
-	  <Folder Include="HangmanTesting\obj\Release\net7.0\ref\" />
 	</ItemGroup>
 
 </Project>
