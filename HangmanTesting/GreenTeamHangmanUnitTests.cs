@@ -36,7 +36,7 @@ namespace HangmanTesting
 
             // Assert
             Assert.Equal(0, countOfVisibleLetters);
-            // just adding a comment to test for git causing errors in project reloads
+            
         }
 
 

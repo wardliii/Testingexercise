@@ -30,9 +30,81 @@ public partial class GamePage : ContentPage
 	 * Resets the display to the initial image and
 	 * the appropriate number of visible labels
 	 */
-    private void ResetDisplay(string word)
+    public void ResetDisplay(string word)
     {
-        
+        Letter1.IsVisible = false;
+        Letter2.IsVisible = false;
+        Letter3.IsVisible = false;
+        Letter4.IsVisible = false;
+        Letter5.IsVisible = false;
+        Letter6.IsVisible = false;
+        Letter7.IsVisible = false;
+        Letter8.IsVisible = false;
+        Letter9.IsVisible = false;
+        Letter10.IsVisible = false;
+        Letter11.IsVisible = false;
+        Letter12.IsVisible = false;
+
+        Underline1.IsVisible = false;
+        Underline2.IsVisible = false;
+        Underline3.IsVisible = false;
+        Underline4.IsVisible = false;
+        Underline5.IsVisible = false;
+        Underline6.IsVisible = false;
+        Underline7.IsVisible = false;
+        Underline8.IsVisible = false;
+        Underline9.IsVisible = false;
+        Underline10.IsVisible = false;
+        Underline11.IsVisible = false;
+        Underline12.IsVisible = false;
+
+        for (int letterInWord = 0; letterInWord < word.Length; letterInWord++)
+        {
+
+            switch (letterInWord)
+            {
+                case 0:
+                    Underline1.IsVisible = true;
+                    break;
+                case 1:
+                    Underline2.IsVisible = true;
+                    break;
+                case 2:
+                    Underline3.IsVisible = true;
+                    break;
+                case 3:
+                    Underline4.IsVisible = true;
+                    break;
+                case 4:
+                    Underline5.IsVisible = true;
+                    break;
+                case 5:
+                    Underline6.IsVisible = true;
+                    break;
+                case 6:
+                    Underline7.IsVisible = true;
+                    break;
+                case 7:
+                    Underline8.IsVisible = true;
+                    break;
+                case 8:
+                    Underline9.IsVisible = true;
+                    break;
+                case 9:
+                    Underline10.IsVisible = true;
+                    break;
+                case 10:
+                    Underline11.IsVisible = true;
+                    break;
+                case 11:
+                    Underline12.IsVisible = true;
+                    break;
+                default: break;
+            }
+
+
+        }
+
     }
 
     /*!
