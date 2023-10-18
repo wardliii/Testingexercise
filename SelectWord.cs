@@ -28,7 +28,7 @@ namespace SelectWord
 
 
         [Fact]
-        public void SelectWord_HardGameType_ReturnsWordWithLessThan7Characters()
+        public void SelectWord_HardGameType_ReturnsWordWithMoreThan10Characters()
         {
             // Arrange
             MethodInfo methodInfo = typeof(GamePage).GetMethod("SelectWord", BindingFlags.NonPublic | BindingFlags.Instance);
