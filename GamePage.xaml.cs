@@ -116,7 +116,12 @@ public partial class GamePage : ContentPage
     private string SelectWord(string gameType)
     {
         string[] words;
-        string filePath = "C:\\Users\\alexa\\source\\repos\\wardliii\\Testingexercise\\Resources\\Raw\\wordList.txt";
+        // Obtenir le répertoire de base du projet de test
+        string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
+        // Construire le chemin d'accès relatif au fichier wordList.txt
+        string relativePath = Path.Combine("..","..", "..", "..", "Resources", "Raw", "wordList.txt");
+        string filePath = Path.Combine(baseDirectory, relativePath);
+
 
 
         try
